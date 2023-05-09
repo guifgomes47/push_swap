@@ -6,7 +6,7 @@
 /*   By: guilhfer <guilhfer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 00:28:02 by guilhfer          #+#    #+#             */
-/*   Updated: 2023/05/04 23:36:29 by guilhfer         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:10:04 by guilhfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,13 @@ void	ft_sort_check(t_list **head_a)
 		return ;
 	ft_list_index(*head_a, list_len);
 	if (list_len == 2)
+	{
 		ft_sort2(head_a);
-	return ;
+		return ;
+	}
 	if (list_len == 3)
+	{
 		ft_sort3(head_a);
-	return ;
+		return ;
+	}
 }
