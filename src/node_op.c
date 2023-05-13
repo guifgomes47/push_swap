@@ -6,7 +6,7 @@
 /*   By: guilhfer <guilhfer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 00:19:39 by guilhfer          #+#    #+#             */
-/*   Updated: 2023/05/03 02:08:30 by guilhfer         ###   ########.fr       */
+/*   Updated: 2023/05/13 18:55:14 by guilhfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,22 @@ t_list	*ft_new_node(int value)
 	return (newnode);
 }
 
-// void	ft_pop(t_list **list)
-// {
-// 	t_list	new;
+void	ft_insert_front(t_list **list, t_list *new)
+{
+	if (!new)
+		return ;
+	if (*list == NULL)
+	{
+		*list = new;
+		(*list)->next = NULL;
+		return ;
+	}
+	(*list)->prev = new;
+	new->next = *list;
+	*list = new;
+}
 
-// 	new = list;
-// 	if (!list)
-// 		return ;
-// 	(*list)->next = new;
-// }
-
-void	ft_append(t_list **list, t_list *new)
+void	ft_insert_end(t_list **list, t_list *new)
 {
 	if (!list || !new)
 		return ;

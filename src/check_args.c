@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int	ft_dupcheck(char **argv)
+int	ft_has_duplicates(char **argv)
 {
 	int	i;
 	int	j;
@@ -24,15 +24,15 @@ int	ft_dupcheck(char **argv)
 		while (argv[j])
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				return (0);
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
-int	check_values(char **argv)
+int	ft_is_number(char **argv)
 {
 	int	i;
 	int	j;
@@ -52,7 +52,7 @@ int	check_values(char **argv)
 			else
 				return (0);
 		}
-		if (ft_atol(argv[i]) > MAX_INT || ft_atol(argv[i]) < MIN_INT)
+		if (ft_atol(argv[i]) > MAX_INT || ft_atol(argv[i]) <= MIN_INT)
 			return (0);
 		j = 0;
 		i++;
@@ -62,23 +62,20 @@ int	check_values(char **argv)
 
 int	check_args(int argc, char **argv)
 {
-	ft_printf("ARGC: %d\n", argc);
 	if (argc < 2)
-		//Comparar saída
-		exit(1);
-	if (argc == 2 && check_values(argv))
+		exit(0);
+	if (argc == 2 && ft_is_number(argv))
 	{
-		//Comparar saída
 		exit(0);
 	}
-	if (!ft_dupcheck(argv))
+	if (ft_has_duplicates(argv))
 	{
-		ft_printf("Error Duplas\n");
+		ft_printf("Error\n");
 		exit(1);
 	}
-	if (!check_values(argv))
+	if (!ft_is_number(argv))
 	{
-		ft_printf("Error Valor\n");
+		ft_printf("Error\n");
 		exit(1);
 	}
 	return (0);

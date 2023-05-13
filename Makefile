@@ -1,6 +1,7 @@
 NAME = push_swap
 
-FILES = main.c check_args.c sort_check.c sort_op.c node_op.c
+FILES = main.c check_args.c sort_check.c sort_op.c node_op.c \
+		stack_op.c
 
 SRC_PATH = src/
 OBJ_PATH = obj/

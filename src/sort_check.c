@@ -6,7 +6,7 @@
 /*   By: guilhfer <guilhfer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 00:28:02 by guilhfer          #+#    #+#             */
-/*   Updated: 2023/05/07 18:10:04 by guilhfer         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:29:54 by guilhfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_list_index(t_list *list, int list_len)
 	}
 }
 
-int	ft_sort_list(t_list *list)
+int	ft_is_list_sorted(t_list *list)
 {
 	int	max;
 
@@ -72,12 +72,12 @@ int	ft_list_len(t_list *list)
 }
 
 //Add head_b
-void	ft_sort_check(t_list **head_a)
+void	ft_sort_check(t_list **head_a, t_list **head_b)
 {
 	int	list_len;
 
 	list_len = ft_list_len(*head_a);
-	if (ft_sort_list(*head_a))
+	if (ft_is_list_sorted(*head_a))
 		return ;
 	ft_list_index(*head_a, list_len);
 	if (list_len == 2)
@@ -90,4 +90,10 @@ void	ft_sort_check(t_list **head_a)
 		ft_sort3(head_a);
 		return ;
 	}
+	if (list_len == 4 || list_len == 5)
+		ft_sort5(head_a, head_b, list_len);
+	else
+		ft_radix_sort(head_a, head_b, list_len);
+	while ((*head_a)->prev)
+		*head_a = (*head_a)->prev;
 }
