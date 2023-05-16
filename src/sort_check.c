@@ -6,7 +6,7 @@
 /*   By: guilhfer <guilhfer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 00:28:02 by guilhfer          #+#    #+#             */
-/*   Updated: 2023/05/13 16:29:54 by guilhfer         ###   ########.fr       */
+/*   Updated: 2023/05/16 01:14:24 by guilhfer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	ft_list_len(t_list *list)
 	return (i);
 }
 
-//Add head_b
 void	ft_sort_check(t_list **head_a, t_list **head_b)
 {
 	int	list_len;
